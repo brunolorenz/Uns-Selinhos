@@ -1,0 +1,1277 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Classificados Uns Predinhos · Selos</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Courier+Prime:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+  /* ─── VARIÁVEIS ─── */
+  :root {
+    --papel: #f2ead8;
+    --papel-escuro: #e8ddc5;
+    --papel-borda: #c8b99a;
+    --tinta: #1a1209;
+    --tinta-fraca: #4a3f2f;
+    --verde: #2d5016;
+    --verde-claro: #e8f0e0;
+    --verde-borda: #4a7a25;
+    --tijolo: #8b2e1a;
+    --tijolo-claro: #f5e8e4;
+    --tijolo-borda: #c04020;
+    --venda: #1a3a5c;
+    --venda-claro: #e4ecf5;
+    --venda-borda: #2a5a8c;
+    --cinza-anuncio: #888;
+    --fonte-titulo: 'Playfair Display', Georgia, serif;
+    --fonte-corpo: 'Libre Baskerville', Georgia, serif;
+    --fonte-mono: 'Courier Prime', 'Courier New', monospace;
+  }
+
+  /* ─── RESET & BASE ─── */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background-color: var(--papel);
+    background-image:
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.06'/%3E%3C/svg%3E");
+    color: var(--tinta);
+    font-family: var(--fonte-corpo);
+    font-size: 14px;
+    line-height: 1.5;
+    min-height: 100vh;
+  }
+
+  /* ─── LINHAS HORIZONTAIS DE JORNAL ─── */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: repeating-linear-gradient(
+      to bottom,
+      transparent,
+      transparent 27px,
+      rgba(100,80,40,0.06) 27px,
+      rgba(100,80,40,0.06) 28px
+    );
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  /* ─── WRAPPER ─── */
+  .wrapper {
+    position: relative;
+    z-index: 1;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 16px 60px;
+  }
+
+  /* ─── CABEÇALHO ─── */
+  header {
+    border-bottom: 3px double var(--tinta);
+    padding: 28px 0 16px;
+    margin-bottom: 4px;
+  }
+
+  .header-top {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+
+  .masthead {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .masthead-eyebrow {
+    font-family: var(--fonte-mono);
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--tinta-fraca);
+    margin-bottom: 4px;
+  }
+
+  .masthead-titulo {
+    font-family: var(--fonte-titulo);
+    font-size: clamp(28px, 5vw, 52px);
+    font-weight: 900;
+    line-height: 1;
+    letter-spacing: -0.01em;
+  }
+
+  .masthead-titulo span {
+    font-style: italic;
+    font-weight: 400;
+  }
+
+  .masthead-sub {
+    font-family: var(--fonte-mono);
+    font-size: 11px;
+    color: var(--tinta-fraca);
+    margin-top: 6px;
+    letter-spacing: 0.05em;
+  }
+
+  .header-stats {
+    text-align: right;
+    font-family: var(--fonte-mono);
+    font-size: 11px;
+    color: var(--tinta-fraca);
+    line-height: 1.8;
+    border-left: 1px solid var(--papel-borda);
+    padding-left: 20px;
+  }
+
+  .header-stats strong {
+    font-size: 22px;
+    font-family: var(--fonte-titulo);
+    font-weight: 700;
+    color: var(--tinta);
+    display: block;
+    line-height: 1.1;
+  }
+
+  /* ─── DESTAQUE DO CLUBE ─── */
+  .anuncio-clube {
+    border: 2px solid var(--tinta);
+    background: var(--tinta);
+    color: var(--papel);
+    padding: 14px 18px;
+    margin: 16px 0;
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  .anuncio-clube .clube-icon {
+    font-size: 40px;
+    line-height: 1;
+    flex-shrink: 0;
+  }
+
+  .anuncio-clube h2 {
+    font-family: var(--fonte-titulo);
+    font-size: 15px;
+    font-weight: 700;
+    margin-bottom: 2px;
+  }
+
+  .anuncio-clube p {
+    font-size: 12px;
+    color: #ccc;
+    line-height: 1.5;
+  }
+
+  .anuncio-clube a {
+    display: inline-block;
+    margin-top: 8px;
+    font-family: var(--fonte-mono);
+    font-size: 11px;
+    color: var(--papel);
+    border: 1px solid var(--papel-borda);
+    padding: 4px 10px;
+    text-decoration: none;
+    letter-spacing: 0.05em;
+  }
+
+  .anuncio-clube a:hover {
+    background: rgba(255,255,255,0.1);
+  }
+
+  /* ─── FILTROS ─── */
+  .filtros-bar {
+    border-top: 1px solid var(--papel-borda);
+    border-bottom: 2px solid var(--tinta);
+    padding: 10px 0;
+    margin-bottom: 20px;
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+
+  .filtros-bar label {
+    font-family: var(--fonte-mono);
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--tinta-fraca);
+    white-space: nowrap;
+  }
+
+  .filtros-bar select,
+  .filtros-bar input[type="text"] {
+    font-family: var(--fonte-mono);
+    font-size: 12px;
+    background: transparent;
+    border: 1px solid var(--papel-borda);
+    border-radius: 0;
+    color: var(--tinta);
+    padding: 4px 8px;
+    cursor: pointer;
+    appearance: none;
+    -webkit-appearance: none;
+  }
+
+  .filtros-bar select:focus,
+  .filtros-bar input:focus {
+    outline: 1px solid var(--tinta);
+    outline-offset: 1px;
+  }
+
+  .filtros-bar .sep {
+    color: var(--papel-borda);
+    font-family: var(--fonte-mono);
+    font-size: 16px;
+  }
+
+  .filtros-bar input[type="text"] {
+    min-width: 140px;
+  }
+
+  .btn-novo {
+    margin-left: auto;
+    font-family: var(--fonte-mono);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    background: var(--tinta);
+    color: var(--papel);
+    border: none;
+    padding: 6px 14px;
+    cursor: pointer;
+    white-space: nowrap;
+  }
+
+  .btn-novo:hover {
+    background: var(--tinta-fraca);
+  }
+
+  /* ─── GRADE DE ANÚNCIOS ─── */
+  .grade {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+  }
+
+  /* Colunas irregulares: coluna 1 mais larga */
+  .grade .col-1 { grid-column: span 1; }
+  .grade .col-2 { grid-column: span 1; }
+  .grade .col-3 { grid-column: span 1; }
+
+  /* ─── ANÚNCIO ─── */
+  .anuncio {
+    border: 1px solid var(--papel-borda);
+    background: #faf6ec;
+    padding: 14px 16px;
+    position: relative;
+    transition: background 0.15s;
+  }
+
+  .anuncio:hover {
+    background: #f5f0e0;
+  }
+
+  /* Faixa colorida no topo do anúncio */
+  .anuncio::before {
+    content: '';
+    display: block;
+    height: 3px;
+    margin: -14px -16px 12px;
+  }
+
+  .anuncio.tenho::before { background: var(--verde); }
+  .anuncio.procuro::before { background: var(--tijolo); }
+  .anuncio.vendo::before { background: var(--venda); }
+
+  .anuncio-cat {
+    font-family: var(--fonte-mono);
+    font-size: 9px;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    font-weight: 700;
+    margin-bottom: 6px;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+  }
+
+  .anuncio.tenho .anuncio-cat { color: var(--verde); }
+  .anuncio.procuro .anuncio-cat { color: var(--tijolo); }
+  .anuncio.vendo .anuncio-cat { color: var(--venda); }
+
+  .anuncio-cat::before {
+    content: '●';
+    font-size: 7px;
+  }
+
+  .anuncio-nome {
+    font-family: var(--fonte-titulo);
+    font-size: 15px;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 2px;
+  }
+
+  .anuncio-local {
+    font-family: var(--fonte-mono);
+    font-size: 10px;
+    color: var(--tinta-fraca);
+    margin-bottom: 10px;
+  }
+
+  .anuncio-selos {
+    list-style: none;
+    margin-bottom: 10px;
+  }
+
+  .anuncio-selos li {
+    font-family: var(--fonte-mono);
+    font-size: 11px;
+    line-height: 1.8;
+    display: flex;
+    gap: 8px;
+    align-items: baseline;
+    border-bottom: 1px dotted var(--papel-borda);
+    padding-bottom: 1px;
+  }
+
+  .anuncio-selos li:last-child {
+    border-bottom: none;
+  }
+
+  .selo-data {
+    font-weight: 700;
+    color: var(--tinta);
+    min-width: 40px;
+  }
+
+  .selo-cidade {
+    color: var(--tinta-fraca);
+    font-style: italic;
+  }
+
+  .anuncio-texto {
+    font-size: 11.5px;
+    font-style: italic;
+    color: var(--tinta-fraca);
+    margin-bottom: 12px;
+    line-height: 1.5;
+    border-left: 2px solid var(--papel-borda);
+    padding-left: 8px;
+  }
+
+  .btn-escrever {
+    font-family: var(--fonte-mono);
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--tinta-fraca);
+    border: 1px solid var(--papel-borda);
+    background: transparent;
+    padding: 3px 8px;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+  }
+
+  .btn-escrever:hover {
+    border-color: var(--tinta);
+    color: var(--tinta);
+  }
+
+  .anuncio-data-pub {
+    font-family: var(--fonte-mono);
+    font-size: 9px;
+    color: var(--cinza-anuncio);
+    position: absolute;
+    bottom: 8px;
+    right: 12px;
+  }
+
+  /* Anúncio largo (1ª coluna, dobra a largura) */
+  .anuncio.largo { grid-column: span 2; }
+
+  /* ─── MODAL NOVO ANÚNCIO ─── */
+  .modal-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(26,18,9,0.55);
+    z-index: 100;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .modal-overlay.aberto {
+    display: flex;
+  }
+
+  .modal {
+    background: var(--papel);
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.06'/%3E%3C/svg%3E");
+    border: 2px solid var(--tinta);
+    width: 100%;
+    max-width: 520px;
+    max-height: 90vh;
+    overflow-y: auto;
+    padding: 28px 28px 24px;
+    position: relative;
+    margin: 16px;
+  }
+
+  .modal h2 {
+    font-family: var(--fonte-titulo);
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 4px;
+    border-bottom: 2px solid var(--tinta);
+    padding-bottom: 10px;
+    margin-bottom: 18px;
+  }
+
+  .modal-fechar {
+    position: absolute;
+    top: 14px;
+    right: 16px;
+    font-family: var(--fonte-mono);
+    font-size: 18px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--tinta-fraca);
+    line-height: 1;
+  }
+
+  .campo {
+    margin-bottom: 14px;
+  }
+
+  .campo label {
+    display: block;
+    font-family: var(--fonte-mono);
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--tinta-fraca);
+    margin-bottom: 4px;
+  }
+
+  .campo input,
+  .campo select,
+  .campo textarea {
+    width: 100%;
+    font-family: var(--fonte-corpo);
+    font-size: 13px;
+    background: rgba(255,255,255,0.4);
+    border: 1px solid var(--papel-borda);
+    border-radius: 0;
+    color: var(--tinta);
+    padding: 7px 10px;
+    appearance: none;
+    -webkit-appearance: none;
+  }
+
+  .campo input:focus,
+  .campo select:focus,
+  .campo textarea:focus {
+    outline: 2px solid var(--tinta);
+    outline-offset: 0;
+    background: rgba(255,255,255,0.7);
+  }
+
+  .campo textarea {
+    min-height: 80px;
+    resize: vertical;
+    font-style: italic;
+  }
+
+  .campo-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+
+  .selos-adicionados {
+    margin-top: 8px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+
+  .selo-tag {
+    font-family: var(--fonte-mono);
+    font-size: 10px;
+    background: var(--papel-escuro);
+    border: 1px solid var(--papel-borda);
+    padding: 2px 8px 2px 6px;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .selo-tag button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 11px;
+    color: var(--tinta-fraca);
+    line-height: 1;
+    padding: 0;
+  }
+
+  .btn-add-selo {
+    font-family: var(--fonte-mono);
+    font-size: 11px;
+    background: var(--papel-escuro);
+    border: 1px dashed var(--papel-borda);
+    color: var(--tinta-fraca);
+    padding: 4px 10px;
+    cursor: pointer;
+    margin-top: 6px;
+    width: 100%;
+  }
+
+  .btn-add-selo:hover {
+    border-color: var(--tinta);
+    color: var(--tinta);
+  }
+
+  .modal-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+    padding-top: 16px;
+    border-top: 1px solid var(--papel-borda);
+  }
+
+  .btn-enviar {
+    font-family: var(--fonte-mono);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    background: var(--tinta);
+    color: var(--papel);
+    border: none;
+    padding: 10px 22px;
+    cursor: pointer;
+    flex: 1;
+  }
+
+  .btn-enviar:hover { background: var(--tinta-fraca); }
+
+  .btn-cancelar {
+    font-family: var(--fonte-mono);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    background: transparent;
+    color: var(--tinta-fraca);
+    border: 1px solid var(--papel-borda);
+    padding: 10px 16px;
+    cursor: pointer;
+  }
+
+  .modal-aviso {
+    font-family: var(--fonte-mono);
+    font-size: 10px;
+    color: var(--cinza-anuncio);
+    margin-top: 10px;
+    line-height: 1.5;
+  }
+
+  /* ─── RODAPÉ ─── */
+  footer {
+    border-top: 2px solid var(--tinta);
+    margin-top: 40px;
+    padding-top: 24px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 24px;
+    align-items: start;
+  }
+
+  .footer-logo {
+    font-family: var(--fonte-titulo);
+    font-size: 13px;
+    font-weight: 700;
+    margin-bottom: 4px;
+  }
+
+  .footer-logo span { font-style: italic; font-weight: 400; }
+
+  footer p, footer small {
+    font-family: var(--fonte-mono);
+    font-size: 10px;
+    color: var(--tinta-fraca);
+    line-height: 1.6;
+  }
+
+  .newsletter h3 {
+    font-family: var(--fonte-titulo);
+    font-size: 13px;
+    margin-bottom: 8px;
+    font-weight: 700;
+  }
+
+  .newsletter-form {
+    display: flex;
+    gap: 0;
+  }
+
+  .newsletter-form input {
+    flex: 1;
+    font-family: var(--fonte-mono);
+    font-size: 11px;
+    background: rgba(255,255,255,0.5);
+    border: 1px solid var(--papel-borda);
+    border-right: none;
+    padding: 6px 10px;
+    color: var(--tinta);
+    border-radius: 0;
+  }
+
+  .newsletter-form input:focus {
+    outline: 1px solid var(--tinta);
+    outline-offset: 0;
+  }
+
+  .newsletter-form button {
+    font-family: var(--fonte-mono);
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    background: var(--tinta);
+    color: var(--papel);
+    border: none;
+    padding: 6px 12px;
+    cursor: pointer;
+    white-space: nowrap;
+  }
+
+  .footer-legenda {
+    font-family: var(--fonte-mono);
+    font-size: 9px;
+    color: var(--cinza-anuncio);
+    margin-top: 6px;
+  }
+
+  /* ─── NENHUM RESULTADO ─── */
+  .sem-resultados {
+    grid-column: 1 / -1;
+    padding: 40px;
+    text-align: center;
+    font-style: italic;
+    color: var(--tinta-fraca);
+    font-family: var(--fonte-corpo);
+    font-size: 14px;
+    border-right: 1px solid var(--papel-borda);
+    border-bottom: 1px solid var(--papel-borda);
+  }
+
+  /* ─── MOBILE ─── */
+  @media (max-width: 700px) {
+    .grade {
+      grid-template-columns: 1fr;
+      gap: 10px;
+    }
+    .anuncio.largo { grid-column: span 1; }
+    footer {
+      grid-template-columns: 1fr;
+    }
+    .header-stats { border-left: none; padding-left: 0; text-align: left; }
+    .header-top { flex-direction: column; align-items: flex-start; }
+    .filtros-bar { gap: 8px; }
+    .btn-novo { margin-left: 0; }
+    .campo-row { grid-template-columns: 1fr; }
+  }
+
+  @media (max-width: 900px) and (min-width: 701px) {
+    .grade { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+    .anuncio.largo { grid-column: span 2; }
+  }
+
+  /* ─── TOAST ─── */
+  .toast {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    background: var(--tinta);
+    color: var(--papel);
+    font-family: var(--fonte-mono);
+    font-size: 12px;
+    padding: 12px 18px;
+    z-index: 200;
+    opacity: 0;
+    transition: opacity 0.3s;
+    pointer-events: none;
+  }
+  .toast.visivel { opacity: 1; }
+</style>
+</head>
+<body>
+
+<div class="wrapper">
+
+  <!-- CABEÇALHO -->
+  <header>
+    <div class="header-top">
+      <div class="masthead">
+        <div class="masthead-eyebrow">Edição nº 1 · Junho 2026</div>
+        <div class="masthead-titulo">Classificados <span>Uns Predinhos</span> · Selos</div>
+        <div class="masthead-sub">encontre, troque, escreva cartas</div>
+      </div>
+      <div class="header-stats" id="stats">
+        <strong id="stat-coletores">—</strong>
+        colecionadores
+        <br>
+        <strong id="stat-selos">—</strong>
+        selos circulando
+      </div>
+    </div>
+  </header>
+
+  <!-- ANÚNCIO DESTAQUE DO CLUBE -->
+  <div class="anuncio-clube">
+    <div class="clube-icon">✉</div>
+    <div>
+      <h2>Bem-vindo ao Clube dos Selos Uns Predinhos</h2>
+      <p>Cada predinho virou um selo. Cada selo tem uma data. Cada data, uma rua em alguma cidade do Brasil.<br>
+      Troque por correspondência, colecione, escreva cartas. Isso aqui é lugar de gente que olha as coisas com calma.</p>
+      <a href="#" onclick="return false;">→ entrar no grupo</a>
+    </div>
+  </div>
+
+  <!-- BARRA DE FILTROS -->
+  <div class="filtros-bar">
+    <label for="f-cat">Categoria</label>
+    <select id="f-cat" onchange="filtrar()">
+      <option value="">Todos</option>
+      <option value="tenho">Tenho para trocar</option>
+      <option value="procuro">Estou procurando</option>
+      <option value="vendo">Vendo / disponível</option>
+    </select>
+
+    <span class="sep">·</span>
+
+    <label for="f-mes">Mês</label>
+    <select id="f-mes" onchange="filtrar()">
+      <option value="">Qualquer</option>
+      <option value="01">Janeiro</option>
+      <option value="02">Fevereiro</option>
+      <option value="03">Março</option>
+      <option value="04">Abril</option>
+      <option value="05">Maio</option>
+      <option value="06">Junho</option>
+      <option value="07">Julho</option>
+      <option value="08">Agosto</option>
+      <option value="09">Setembro</option>
+      <option value="10">Outubro</option>
+      <option value="11">Novembro</option>
+      <option value="12">Dezembro</option>
+    </select>
+
+    <span class="sep">·</span>
+
+    <label for="f-uf">Estado</label>
+    <select id="f-uf" onchange="filtrar()">
+      <option value="">Todos</option>
+      <option>RS</option><option>SC</option><option>PR</option>
+      <option>SP</option><option>RJ</option><option>MG</option>
+      <option>BA</option><option>PE</option><option>CE</option>
+      <option>AM</option><option>PA</option><option>DF</option>
+    </select>
+
+    <span class="sep">·</span>
+
+    <input type="text" id="f-busca" placeholder="buscar cidade ou nome…" oninput="filtrar()">
+
+    <button class="btn-novo" onclick="abrirModal()">+ Novo anúncio</button>
+  </div>
+
+  <!-- GRADE DE ANÚNCIOS -->
+  <div class="grade" id="grade">
+    <!-- Anúncios injetados por JS -->
+  </div>
+
+  <!-- RODAPÉ -->
+  <footer>
+    <div>
+      <div class="footer-logo">Uns <span>Predinhos</span></div>
+      <p>Projeto de aquarela urbana<br>de Bruno Lorenz<br>Porto Alegre — RS</p>
+      <br>
+      <small>@unspredinhos</small>
+    </div>
+    <div>
+      <p>Este mural é atualizado manualmente.<br>
+      Novos anúncios passam por aprovação antes de aparecer aqui.<br>
+      Os emails dos anunciantes não são exibidos publicamente.</p>
+      <br>
+      <small>Dados dos selos: Planilha Google Sheets pública<br>
+      Hospedagem: GitHub Pages</small>
+    </div>
+    <div class="newsletter">
+      <h3>Email mensal do clube</h3>
+      <div class="newsletter-form">
+        <input type="email" id="email-newsletter" placeholder="seu@email.com">
+        <button onclick="assinarNewsletter()">assinar</button>
+      </div>
+      <p class="footer-legenda">Você receberá novidades do clube uma vez por mês,<br>sem spam, pode cancelar quando quiser.</p>
+    </div>
+  </footer>
+
+</div><!-- /wrapper -->
+
+<!-- MODAL NOVO ANÚNCIO -->
+<div class="modal-overlay" id="modal" onclick="fecharModalOverlay(event)">
+  <div class="modal">
+    <button class="modal-fechar" onclick="fecharModal()">✕</button>
+    <h2>Publicar anúncio</h2>
+
+    <div class="campo-row">
+      <div class="campo">
+        <label>Seu nome</label>
+        <input type="text" id="f-nome" placeholder="Fulana de Tal">
+      </div>
+      <div class="campo">
+        <label>Sua cidade</label>
+        <input type="text" id="f-cidade-anunc" placeholder="Porto Alegre — RS">
+      </div>
+    </div>
+
+    <div class="campo">
+      <label>Seu email <small style="text-transform:none;font-size:9px;">(não será exibido)</small></label>
+      <input type="email" id="f-email" placeholder="contato@email.com">
+    </div>
+
+    <div class="campo">
+      <label>Categoria</label>
+      <select id="f-cat-modal">
+        <option value="tenho">Tenho para trocar</option>
+        <option value="procuro">Estou procurando</option>
+        <option value="vendo">Vendo / disponível</option>
+      </select>
+    </div>
+
+    <div class="campo">
+      <label>Selos envolvidos <span id="estado-selos" style="font-weight:400;color:var(--cinza-anuncio);text-transform:none;letter-spacing:0;font-size:9px;margin-left:6px;"></span></label>
+      <div style="position:relative;">
+        <input type="text" id="f-selo-dia" placeholder="Digite a data — ex: 07/04 ou 14/03" autocomplete="off" oninput="autocompleteData(this.value)" onkeydown="autocompleteKeydown(event)" style="width:100%;">
+        <div id="autocomplete-lista" style="display:none;position:absolute;top:100%;left:0;right:0;background:#faf6ec;border:1px solid var(--papel-borda);border-top:none;z-index:300;max-height:180px;overflow-y:auto;"></div>
+      </div>
+      <div id="selo-preview" style="display:none;margin-top:6px;padding:6px 10px;background:var(--papel-escuro);border:1px solid var(--papel-borda);font-family:var(--fonte-mono);font-size:11px;color:var(--tinta-fraca);"></div>
+      <button class="btn-add-selo" onclick="adicionarSelo()">+ adicionar este selo</button>
+      <div class="selos-adicionados" id="selos-lista"></div>
+    </div>
+
+    <div class="campo">
+      <label>Texto livre <small style="text-transform:none;font-size:9px;">(opcional)</small></label>
+      <textarea id="f-texto" placeholder="ex: procuro especialmente casas de esquina com janelas em arco…"></textarea>
+    </div>
+
+    <div class="modal-actions">
+      <button class="btn-cancelar" onclick="fecharModal()">Cancelar</button>
+      <button class="btn-enviar" onclick="enviarAnuncio()">Enviar para aprovação</button>
+    </div>
+    <p class="modal-aviso">★ Seu anúncio será publicado após revisão. Geralmente em 1–2 dias.</p>
+  </div>
+</div>
+
+<!-- TOAST -->
+<div class="toast" id="toast"></div>
+
+<script>
+// ─── DADOS DOS SELOS — carregados da planilha Google Sheets ──────────
+// Planilha: 1BPJ37xzZDbycJ10Pd_9_YqiX_GMIVPMqhcmSd0l1bxI
+// Para funcionar: Arquivo → Compartilhar → Publicar na web → CSV → Publicar
+const SHEET_ID = '1BPJ37xzZDbycJ10Pd_9_YqiX_GMIVPMqhcmSd0l1bxI';
+const SHEET_CSV_URL = `https://docs.google.com/spreadsheets/d/${SHEET_ID}/export?format=csv&gid=0`;
+
+let SELOS_PLANILHA = [];
+const SELOS_IDX = {};
+
+function parseCsvSelos(csv) {
+  const linhas = csv.trim().split('\n');
+  const resultado = [];
+  // Pular cabeçalho (primeira linha)
+  for (let i = 1; i < linhas.length; i++) {
+    const cols = linhas[i].split(',');
+    if (cols.length < 7) continue;
+    const dia  = cols[0]?.trim().replace(/"/g, '');
+    const mes  = cols[1]?.trim().replace(/"/g, '');
+    const data = cols[2]?.trim().replace(/"/g, '');
+    const rua  = cols[3]?.trim().replace(/"/g, '');
+    const cidade = cols[4]?.trim().replace(/"/g, '');
+    const uf   = cols[5]?.trim().replace(/"/g, '');
+    if (!data || !cidade || !uf || data === 'Data (DD/MM)') continue;
+    resultado.push({ dia, mes, data, rua, cidade, uf });
+  }
+  return resultado;
+}
+
+function carregarSelos() {
+  const estado = document.getElementById('estado-selos');
+  if (estado) estado.textContent = 'carregando selos…';
+
+  fetch(SHEET_CSV_URL)
+    .then(r => {
+      if (!r.ok) throw new Error('HTTP ' + r.status);
+      return r.text();
+    })
+    .then(csv => {
+      SELOS_PLANILHA = parseCsvSelos(csv);
+      SELOS_PLANILHA.forEach(s => { SELOS_IDX[s.data] = s; });
+      if (estado) estado.textContent = SELOS_PLANILHA.length + ' selos carregados';
+      setTimeout(() => { if (estado) estado.textContent = ''; }, 3000);
+    })
+    .catch(err => {
+      console.warn('Não foi possível carregar planilha:', err);
+      if (estado) estado.textContent = '⚠ planilha não publicada — autocomplete indisponível';
+    });
+}
+
+// ─── ANÚNCIOS DE EXEMPLO ─────────────────────────────────────────────
+const ANUNCIOS_EXEMPLO = [
+  {
+    id: 1,
+    nome: "Luísa Werneck",
+    cidade_anunc: "Florianópolis — SC",
+    cat: "tenho",
+    selos: [
+      { data: "14/03", cidade: "Catorze de Março", uf: "MS" },
+      { data: "25/01", cidade: "Vinte e Cinco de Janeiro", uf: "SP" },
+      { data: "21/04", cidade: "Vinte e Um de Abril", uf: "MG" },
+    ],
+    texto: "Tenho três selos em ótimo estado, prontos para viajar. Gosto especialmente de casas com platibanda.",
+    pub: "jun/2026",
+    email: "luisa@exemplo.com",
+    largo: true,
+  },
+  {
+    id: 2,
+    nome: "Caetano Meirelles",
+    cidade_anunc: "Recife — PE",
+    cat: "procuro",
+    selos: [
+      { data: "26/01", cidade: "Vinte e Seis de Janeiro", uf: "PE" },
+      { data: "12/03", cidade: "Doze de Março", uf: "PE" },
+    ],
+    texto: "Procuro selos com datas históricas do Nordeste. Troco por selos do RS.",
+    pub: "jun/2026",
+    email: "caetano@exemplo.com",
+    largo: false,
+  },
+  {
+    id: 3,
+    nome: "Fernanda Osório",
+    cidade_anunc: "Porto Alegre — RS",
+    cat: "tenho",
+    selos: [
+      { data: "07/04", cidade: "Sete de Abril", uf: "RS" },
+      { data: "25/05", cidade: "Vinte e Cinco de Maio", uf: "RS" },
+    ],
+    texto: "",
+    pub: "jun/2026",
+    email: "fernanda@exemplo.com",
+    largo: false,
+  },
+  {
+    id: 4,
+    nome: "Rafael Nakamura",
+    cidade_anunc: "São Paulo — SP",
+    cat: "vendo",
+    selos: [
+      { data: "13/05", cidade: "Treze de Maio", uf: "RJ" },
+    ],
+    texto: "Vendo kit com 1 selo + envelope personalizado. R$18 com frete.",
+    pub: "jun/2026",
+    email: "rafael@exemplo.com",
+    largo: false,
+  },
+  {
+    id: 5,
+    nome: "Beatriz Saldanha",
+    cidade_anunc: "Curitiba — PR",
+    cat: "procuro",
+    selos: [
+      { data: "24/05", cidade: "Vinte e Quatro de Maio", uf: "PR" },
+      { data: "08/01", cidade: "Oito de Janeiro", uf: "PR" },
+      { data: "29/04", cidade: "Vinte e Nove de Abril", uf: "PR" },
+    ],
+    texto: "Procuro selos do Sul. Tenho selos de São Paulo para trocar.",
+    pub: "jun/2026",
+    email: "beatriz@exemplo.com",
+    largo: false,
+  },
+  {
+    id: 6,
+    nome: "Jonas Cavalcanti",
+    cidade_anunc: "Fortaleza — CE",
+    cat: "tenho",
+    selos: [
+      { data: "01/01", cidade: "Primeiro de Janeiro", uf: "RS" },
+      { data: "04/05", cidade: "Quatro de Maio", uf: "CE" },
+    ],
+    texto: "Tenho selos do Ceará, perfeitos para quem quer correspondência do Nordeste.",
+    pub: "jun/2026",
+    email: "jonas@exemplo.com",
+    largo: false,
+  },
+];
+
+const CAT_LABEL = {
+  tenho: "Tenho para trocar",
+  procuro: "Estou procurando",
+  vendo: "Vendo / disponível",
+};
+
+let selosModal = [];
+let autocompleteIndex = -1;
+let autocompleteSugestoes = [];
+let seloSelecionado = null;
+
+// ─── AUTOCOMPLETE DE DATA ─────────────────────────────────────────────
+function autocompleteData(val) {
+  seloSelecionado = null;
+  document.getElementById('selo-preview').style.display = 'none';
+  const lista = document.getElementById('autocomplete-lista');
+  const q = val.trim();
+
+  if (!q) { lista.style.display = 'none'; return; }
+
+  // Busca por data parcial ou por cidade/rua
+  autocompleteSugestoes = SELOS_PLANILHA.filter(s =>
+    s.data.startsWith(q) ||
+    s.data.replace('/', '').startsWith(q.replace('/', '')) ||
+    s.cidade.toLowerCase().includes(q.toLowerCase()) ||
+    s.rua.toLowerCase().includes(q.toLowerCase())
+  ).slice(0, 8);
+
+  if (!autocompleteSugestoes.length) { lista.style.display = 'none'; return; }
+
+  autocompleteIndex = -1;
+  lista.style.display = 'block';
+  lista.innerHTML = autocompleteSugestoes.map((s, i) => `
+    <div
+      onclick="selecionarSugestao(${i})"
+      onmouseenter="autocompleteIndex=${i};renderAcList()"
+      style="padding:7px 12px;cursor:pointer;font-family:var(--fonte-mono);font-size:11px;border-bottom:1px solid var(--papel-borda);line-height:1.4;"
+      data-idx="${i}"
+    >
+      <strong>${s.data}</strong> &nbsp;
+      <span style="color:var(--tinta-fraca);">${s.rua} — ${s.cidade}/${s.uf}</span>
+    </div>
+  `).join('');
+}
+
+function renderAcList() {
+  const lista = document.getElementById('autocomplete-lista');
+  lista.querySelectorAll('[data-idx]').forEach((el, i) => {
+    el.style.background = i === autocompleteIndex ? 'var(--papel-escuro)' : '';
+  });
+}
+
+function autocompleteKeydown(e) {
+  const lista = document.getElementById('autocomplete-lista');
+  if (lista.style.display === 'none') return;
+  if (e.key === 'ArrowDown') {
+    e.preventDefault();
+    autocompleteIndex = Math.min(autocompleteIndex + 1, autocompleteSugestoes.length - 1);
+    renderAcList();
+  } else if (e.key === 'ArrowUp') {
+    e.preventDefault();
+    autocompleteIndex = Math.max(autocompleteIndex - 1, 0);
+    renderAcList();
+  } else if (e.key === 'Enter') {
+    e.preventDefault();
+    if (autocompleteIndex >= 0) selecionarSugestao(autocompleteIndex);
+  } else if (e.key === 'Escape') {
+    lista.style.display = 'none';
+  }
+}
+
+function selecionarSugestao(i) {
+  const s = autocompleteSugestoes[i];
+  seloSelecionado = s;
+  document.getElementById('f-selo-dia').value = s.data;
+  document.getElementById('autocomplete-lista').style.display = 'none';
+  const prev = document.getElementById('selo-preview');
+  prev.style.display = 'block';
+  prev.innerHTML = `✓ <strong>${s.data}</strong> — ${s.rua}, <em>${s.cidade} / ${s.uf}</em>`;
+}
+
+// Fechar autocomplete ao clicar fora
+document.addEventListener('click', (e) => {
+  if (!e.target.closest('#f-selo-dia') && !e.target.closest('#autocomplete-lista')) {
+    document.getElementById('autocomplete-lista').style.display = 'none';
+  }
+});
+
+// ─── RENDERIZAR ANÚNCIOS ──────────────────────────────────────────────
+function renderAnuncios(lista) {
+  const grade = document.getElementById('grade');
+  if (!lista.length) {
+    grade.innerHTML = '<div class="sem-resultados">Nenhum anúncio encontrado para estes filtros.</div>';
+    return;
+  }
+  grade.innerHTML = lista.map(a => `
+    <div class="anuncio ${a.cat}${a.largo ? ' largo' : ''}">
+      <div class="anuncio-cat">${CAT_LABEL[a.cat]}</div>
+      <div class="anuncio-nome">${a.nome}</div>
+      <div class="anuncio-local">${a.cidade_anunc}</div>
+      <ul class="anuncio-selos">
+        ${a.selos.map(s => `
+          <li>
+            <span class="selo-data">${s.data}</span>
+            <span class="selo-cidade">${s.cidade} — ${s.uf}</span>
+          </li>
+        `).join('')}
+      </ul>
+      ${a.texto ? `<p class="anuncio-texto">"${a.texto}"</p>` : ''}
+      <a class="btn-escrever" href="mailto:${a.email}?subject=Classificados%20Uns%20Predinhos%20%E2%80%94%20Selos%20(${encodeURIComponent(a.nome)})">✉ escrever</a>
+      <span class="anuncio-data-pub">${a.pub}</span>
+    </div>
+  `).join('');
+}
+
+// ─── FILTROS ─────────────────────────────────────────────────────────
+function filtrar() {
+  const cat   = document.getElementById('f-cat').value;
+  const mes   = document.getElementById('f-mes').value;
+  const uf    = document.getElementById('f-uf').value;
+  const busca = document.getElementById('f-busca').value.toLowerCase().trim();
+
+  let lista = ANUNCIOS_EXEMPLO.filter(a => {
+    if (cat && a.cat !== cat) return false;
+    if (uf && !a.selos.some(s => s.uf === uf)) return false;
+    if (mes && !a.selos.some(s => s.data.endsWith('/' + mes))) return false;
+    if (busca && !(
+      a.nome.toLowerCase().includes(busca) ||
+      a.cidade_anunc.toLowerCase().includes(busca) ||
+      a.selos.some(s => s.cidade.toLowerCase().includes(busca))
+    )) return false;
+    return true;
+  });
+
+  renderAnuncios(lista);
+}
+
+// ─── MODAL ───────────────────────────────────────────────────────────
+function abrirModal() {
+  document.getElementById('modal').classList.add('aberto');
+  document.body.style.overflow = 'hidden';
+}
+
+function fecharModal() {
+  document.getElementById('modal').classList.remove('aberto');
+  document.body.style.overflow = '';
+}
+
+function fecharModalOverlay(e) {
+  if (e.target === document.getElementById('modal')) fecharModal();
+}
+
+function adicionarSelo() {
+  if (!seloSelecionado) {
+    const val = document.getElementById('f-selo-dia').value.trim();
+    // Tentativa de match direto por data
+    const match = SELOS_IDX[val];
+    if (match) {
+      seloSelecionado = match;
+    } else {
+      mostrarToast('Selecione um selo da lista de sugestões.');
+      return;
+    }
+  }
+  // Evitar duplicatas
+  if (selosModal.some(s => s.data === seloSelecionado.data)) {
+    mostrarToast('Este selo já foi adicionado.');
+    return;
+  }
+  selosModal.push({ ...seloSelecionado });
+  renderSelosModal();
+  document.getElementById('f-selo-dia').value = '';
+  document.getElementById('selo-preview').style.display = 'none';
+  seloSelecionado = null;
+}
+
+function removerSelo(i) {
+  selosModal.splice(i, 1);
+  renderSelosModal();
+}
+
+function renderSelosModal() {
+  const el = document.getElementById('selos-lista');
+  el.innerHTML = selosModal.map((s, i) => `
+    <span class="selo-tag">
+      <strong>${s.data}</strong>&nbsp;${s.cidade}/${s.uf}
+      <button onclick="removerSelo(${i})">✕</button>
+    </span>
+  `).join('');
+}
+
+function enviarAnuncio() {
+  const nome   = document.getElementById('f-nome').value.trim();
+  const email  = document.getElementById('f-email').value.trim();
+  const cidade = document.getElementById('f-cidade-anunc').value.trim();
+  if (!nome || !email || !cidade) {
+    mostrarToast('Preencha nome, email e cidade.');
+    return;
+  }
+  if (!selosModal.length) {
+    mostrarToast('Adicione pelo menos um selo.');
+    return;
+  }
+  // Em produção: POST para Google Apps Script
+  // fetch(APPS_SCRIPT_URL, { method: 'POST', body: JSON.stringify({...}) })
+  mostrarToast('Anúncio enviado! Aparecerá após aprovação.');
+  fecharModal();
+  selosModal = [];
+  renderSelosModal();
+  document.querySelectorAll('.modal input, .modal select, .modal textarea')
+    .forEach(el => { if (el.tagName !== 'SELECT') el.value = ''; });
+  document.getElementById('selo-preview').style.display = 'none';
+  seloSelecionado = null;
+}
+
+// ─── NEWSLETTER ──────────────────────────────────────────────────────
+function assinarNewsletter() {
+  const email = document.getElementById('email-newsletter').value.trim();
+  if (!email || !email.includes('@')) {
+    mostrarToast('Digite um email válido.');
+    return;
+  }
+  mostrarToast('Assinatura registrada! Bem-vindo ao clube.');
+  document.getElementById('email-newsletter').value = '';
+}
+
+// ─── TOAST ───────────────────────────────────────────────────────────
+function mostrarToast(msg) {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('visivel');
+  setTimeout(() => t.classList.remove('visivel'), 3200);
+}
+
+// ─── STATS ───────────────────────────────────────────────────────────
+function atualizarStats() {
+  const coletores = ANUNCIOS_EXEMPLO.length;
+  const selos = ANUNCIOS_EXEMPLO.reduce((acc, a) => acc + a.selos.length, 0);
+  document.getElementById('stat-coletores').textContent = coletores;
+  document.getElementById('stat-selos').textContent = selos;
+}
+
+// ─── INIT ────────────────────────────────────────────────────────────
+renderAnuncios(ANUNCIOS_EXEMPLO);
+atualizarStats();
+carregarSelos();
+</script>
+</body>
+</html>
